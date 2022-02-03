@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Posts = ({ posts }: Props) => {
-  return (
+  return posts.length ? (
     <div className="grid grid-cols-1 gap-3 p-2 sm:grid-cols-2 md:gap-6 md:p-6  lg:grid-cols-3">
       {posts.map((post) => (
         <Link key={post._id} href={`/post/${post.slug.current}`}>
@@ -24,9 +24,9 @@ const Posts = ({ posts }: Props) => {
                 <p className="text-sm">{post.description}</p>
               </div>
 
-              <div className="h-12 w-12 rounded-full overflow-hidden">
+              <div className="h-12 w-12 overflow-hidden rounded-full">
                 <img
-                  className="w-full h-full object-cover"
+                  className="h-full w-full object-cover"
                   src={urlFor(post.author.image).url()!}
                   alt={post.author.name}
                 />
@@ -35,6 +35,10 @@ const Posts = ({ posts }: Props) => {
           </div>
         </Link>
       ))}
+    </div>
+  ) : (
+    <div className="my-10 text-center">
+      <h1 className="text-xl sm:text-3xl font-semibold">We didn't find any posts!</h1>
     </div>
   )
 }
