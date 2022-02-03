@@ -2,10 +2,10 @@ import Head from 'next/head'
 import Header from '../components/Header'
 import Posts from '../components/Posts'
 import { sanityClient } from '../sanity'
-import { Post } from '../typings'
+import { IPostType } from '../typings'
 
 interface Props {
-  posts: [Post]
+  posts: [IPostType]
 }
 
 export default function Home({ posts }: Props) {
