@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
 import { urlFor } from '../sanity'
-import { Post } from '../typings'
+import { IPostType } from '../typings'
 
 interface Props {
-  posts: [Post]
+  posts: [IPostType]
 }
 
 const Posts = ({ posts }: Props) => {
